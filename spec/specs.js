@@ -1,17 +1,26 @@
-describe('queenAttack', function() {
-    it('is false if the coordinates are not horizontally, vertically, or diagonally in line with each other', function() {
-        expect(queenAttack( [1, 1], [2, 3])).to.equal(false);
+describe('titleCase', function() {
+
+    it("converts all words of a title from uppercase to title case", function() {
+        expect(titleCase("CAT")).to.equal("Cat");
     });
 
-    it('is true if the coordinates are in line vertically', function() {
-        expect(queenAttack( [1, 1], [1, 2])).to.equal(true);
+    it("capitalizes the first letter of a word in a sentence", function() {
+        expect(titleCase("cat")).to.equal("Cat");
     });
 
-    it('is true if the coordinates are in line horizontally', function() {
-        expect(queenAttack( [1, 1], [2, 1])).to.equal(true);
+    it("capitalizes both words of a two word sentence", function() {
+        expect(titleCase("cat fish")).to.equal("Cat Fish");
     });
 
-    it('is true if the coordinates are in line diagonally', function() {
-        expect(queenAttack( [1, 1], [2, 2])).to.equal(true);
+    it("capitalizes all words of a three word title", function() {
+        expect(titleCase("cat fish dawg")).to.equal("Cat Fish Dawg");
+    });
+
+    it("does not capitalize article words", function() {
+        expect(titleCase("cat in the hat")).to.equal("Cat in the Hat");
+    });
+
+    it("does not capitalize article words, unless first word", function() {
+        expect(titleCase("the cat in the hat")).to.equal("The Cat in the Hat");
     });
 });
